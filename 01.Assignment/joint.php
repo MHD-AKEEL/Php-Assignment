@@ -143,7 +143,7 @@
         echo "Experience: $experience <br>";
         echo "Skills: " . implode(", ", $skills) . "<br>";
 
-        echo "<br><a href='job_form.php'>Go Back</a>";
+        echo "<br><a href='job_form.php'>Go Back..</a>";
     }
 
     ?>
