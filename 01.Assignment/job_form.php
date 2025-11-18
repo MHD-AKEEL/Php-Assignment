@@ -12,18 +12,41 @@
 </head>
 
 <body>
+    <?php
+    //define variables and set to empty values
+    $full_name = $email = $contact_number = $dob = $position = $resume = $coverletter = $linkedln = $experience = $skills = "";
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $full_name = test($_POST["full_name"]);
+        $email = test($_POST["email"]);
+        $contact_number = test($_POST["contact_number"]);
+        $dob = test($_POST["dob"]);
+        $position = test($_POST["position"]);
+        $resume = test($_POST["resume"]);
+        $coverletter = test($_POST["coverletter"]);
+        $linkedln = test($_POST["linkedln"]);
+        $skills = test($_POST["skills"]);
+    }
+    function test($data)
+    {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+    }
+    ?>
 
     <div class="container">
         <h2>Job Application Form</h2>
-        <form action="">
+        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
             Full Name <br>
-            <input type="text" name="f_name"> <br>
+            <input type="text" name="full_name"> <br>
 
             Email <br>
             <input type="email" name="email"> <br>
 
             Contact Number <br>
-            <input type="text" name="c_name"> <br>
+            <input type="text" name="contact_number"> <br>
 
             Date Of Birth <br>
             <input type="date" name="dob"> <br>
@@ -58,6 +81,30 @@
             <input type="submit" name="submit" value="Apply">
         </form>
     </div>
+
+    <div>
+        <?php
+        echo "<h2>Your Details</h2>";
+        echo $full_name;
+        echo "<br>";
+        echo $email;
+        echo "<br>";
+        echo $contact_number;
+        echo "<br>";
+        echo $dob;
+        echo "<br>";
+        echo $position;
+        echo "<br>";
+        echo $resume;
+        echo "<br>";
+        echo $coverletter;
+        echo "<br>";
+        echo $linkedln;
+        echo "<br>";
+        echo $skills;
+        ?>
+    </div>
+
 </body>
 
 </html>
