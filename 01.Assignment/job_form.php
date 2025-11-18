@@ -12,38 +12,15 @@
 </head>
 
 <body>
-    <?php
-    //define variables and set to empty values
-    $full_name = $email = $contact_number = $dob = $position = $resume = $coverletter = $linkedln = $experience = $skills = "";
-
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $full_name = test($_POST["full_name"]);
-        $email = test($_POST["email"]);
-        $contact_number = test($_POST["contact_number"]);
-        $dob = test($_POST["dob"]);
-        $position = test($_POST["position"]);
-        $resume = test($_POST["resume"]);
-        $coverletter = test($_POST["coverletter"]);
-        $linkedln = test($_POST["linkedln"]);
-        $skills = test($_POST["skills"]);
-    }
-    function test($data)
-    {
-        $data = trim($data);
-        $data = stripslashes($data);
-        $data = htmlspecialchars($data);
-        return $data;
-    }
-    ?>
 
     <div class="container">
         <h2>Job Application Form</h2>
-        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+        <form method="post" action="joint.php" enctype="multipart/form-data">
             Full Name <br>
             <input type="text" name="full_name"> <br>
 
             Email <br>
-            <input type="email" name="email"> <br>
+            <input type="text" name="email"> <br>
 
             Contact Number <br>
             <input type="text" name="contact_number"> <br>
@@ -53,6 +30,7 @@
 
             Position Applied For <br>
             <select name="position">
+                <option value="">--select--</option>
                 <option value="softwera developer">Software Developer</option>
                 <option value="web designer">Web Designer</option>
                 <option value="project manager">Project Manager</option>
@@ -65,44 +43,21 @@
             <textarea name="coverletter" rows="5" cols="40"></textarea><br>
 
             Linkedln Profile <br>
-            <input type="url" name="linkedln"> <br>
+            <input type="url" name="linkedin"> <br>
 
             Work Experience (Years) <br>
             <input type="text" name="experience"> <br>
 
             Skills <br>
             <div class="skills">
-                <input type="checkbox" name="skills" value="html">HTML
-                <input type="checkbox" name="skills" value="css">CSS
-                <input type="checkbox" name="skills" value="js">JavaScript
-                <input type="checkbox" name="skills" value="php">PHP
-                <input type="checkbox" name="skills" value="java">Java <br>
+                <input type="checkbox" name="skills[]" value="html">HTML
+                <input type="checkbox" name="skills[]" value="css">CSS
+                <input type="checkbox" name="skills[]" value="js">JavaScript
+                <input type="checkbox" name="skills[]" value="php">PHP
+                <input type="checkbox" name="skills[]" value="java">Java <br>
             </div>
             <input type="submit" name="submit" value="Apply">
         </form>
-    </div>
-
-    <div>
-        <?php
-        echo "<h2>Your Details</h2>";
-        echo $full_name;
-        echo "<br>";
-        echo $email;
-        echo "<br>";
-        echo $contact_number;
-        echo "<br>";
-        echo $dob;
-        echo "<br>";
-        echo $position;
-        echo "<br>";
-        echo $resume;
-        echo "<br>";
-        echo $coverletter;
-        echo "<br>";
-        echo $linkedln;
-        echo "<br>";
-        echo $skills;
-        ?>
     </div>
 
 </body>
