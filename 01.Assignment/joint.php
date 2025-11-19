@@ -1,5 +1,4 @@
 <html>
-
 <body>
 
     <?php
@@ -145,9 +144,7 @@
 
         echo "<br><a href='job_form.php'>Go Back..</a>";
     }
-
     ?>
 
 </body>
-
 </html>
