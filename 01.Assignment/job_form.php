@@ -12,12 +12,19 @@
 </head>
 
 <body>
+    <?php
+        $full_name = $email = $contact_number = $dob = $position = $resume = $coverletter = $linkedin = $experience = $skills = "";
+
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $full_name = htmlspecialchars($_POST["full_name"]);
+        }
+    ?>
 
     <div class="container">
         <h2>Job Application Form</h2>
         <form method="post" action="joint.php" enctype="multipart/form-data">
             Full Name <br>
-            <input type="text" name="full_name"> <br>
+            <input type="text" name="full_name" value="<?php echo htmlspecialchars($full_name); ?>">
 
             Email <br>
             <input type="text" name="email"> <br>
