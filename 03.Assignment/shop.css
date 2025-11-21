@@ -1,0 +1,15 @@
+.form-row {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    
+}
+
+.form-row label {
+    flex-basis: 150px; /* label width */
+    
+}
+.box-center{
+    text-align: center;
+    text: center
+}
