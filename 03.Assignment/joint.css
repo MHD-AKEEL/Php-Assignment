@@ -1,0 +1,42 @@
+/* Full table styling */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+/* Center the top invoice header */
+th[colspan="7"] {
+    text-align: left;
+    padding: 20px;
+    font-size: 18px;
+}
+
+/* Table header styling */
+th {
+    padding: 20px;
+    font-weight: bold;
+}
+
+/* Table cell styling */
+td {
+    padding: 8px;
+}
+
+/* Align right for totals row */
+td[colspan="4"] {
+    text-align: right;
+    font-weight: bold;
+}
+
+/* Link styling */
+a {
+    font-size: 16px;
+    text-decoration: none;
+    color: blue;
+}
